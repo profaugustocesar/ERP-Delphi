@@ -127,6 +127,11 @@
             <Form>frmPrincipal</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="dm\unDM.pas">
+            <Form>DM</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <None Include=".gitignore"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
@@ -150,7 +155,7 @@
                 </Source>
             </Delphi.Personality>
             <Deployment Version="5">
-                <DeployFile LocalName="New1.gitignore" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName=".gitignore" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
