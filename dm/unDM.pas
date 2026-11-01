@@ -35,6 +35,9 @@ var
 
 implementation
 
+uses
+  unCriptografia;
+
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
@@ -88,7 +91,7 @@ begin
       Result.Porta := vArquivoIni.ReadInteger('MariaDB','Porta',3306);
       Result.Banco := vArquivoIni.ReadString('MariaDB','BancoDados','');
       Result.Usuario := vArquivoIni.ReadString('MariaDB','Usuario','');
-      Result.Senha := vArquivoIni.ReadString('MariaDB','Senha','');
+      Result.Senha := TCriptografia.Descriptografar(vArquivoIni.ReadString('MariaDB','Senha',''));
     end;
   finally
     vArquivoIni.Free;
@@ -122,7 +125,7 @@ begin
       vArquivoIni.WriteString('MariaDB','Usuario',pDados.Usuario);
 
       if (Trim(pDados.Senha) <> '') then      
-        vArquivoIni.WriteString('MariaDB','Senha',pDados.Senha);
+        vArquivoIni.WriteString('MariaDB','Senha', TCriptografia.Criptografar(pDados.Senha));
     end;
   finally
     vArquivoIni.Free;

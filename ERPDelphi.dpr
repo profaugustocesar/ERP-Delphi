@@ -6,7 +6,8 @@ uses
   Vcl.Forms,
   unPrincipal in 'principal\unPrincipal.pas' {frmPrincipal},
   unDM in 'dm\unDM.pas' {DM: TDataModule},
-  unFrmConexao in 'dm\unFrmConexao.pas' {frmConexao};
+  unFrmConexao in 'dm\unFrmConexao.pas' {frmConexao},
+  unCriptografia in 'utils\unCriptografia.pas';
 
 {$R *.res}
 
@@ -16,7 +17,6 @@ begin
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.CreateForm(TfrmConexao, frmConexao);
-
   try
     begin
       DM.AbrirConexao(DM.LerArquivoIni);
