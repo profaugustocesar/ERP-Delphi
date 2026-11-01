@@ -21,4 +21,4 @@ __recovery/
 *.~*
 
 # Configurações privadas
-config/conexao.ini
+Conexao.ini

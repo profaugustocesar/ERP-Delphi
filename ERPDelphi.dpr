@@ -10,7 +10,15 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.CreateForm(TDM, DM);
-  Application.Run;
+
+  if (DM.AbrirConexao(DM.LerArquivoIni)) then
+    begin
+      Application.CreateForm(TfrmPrincipal, frmPrincipal);
+      Application.Run;
+    end
+  else
+    begin
+      Application.Terminate;
+    end;
 end.
